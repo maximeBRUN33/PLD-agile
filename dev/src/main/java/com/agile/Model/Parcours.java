@@ -8,16 +8,16 @@ public class Parcours {
     private ArrayList<Chemin> listeChemins;
     private ArrayList<Livraison> listeLivraisons;
     private Livreur livreur;
-    private double heureDebut;
-    private double heureFin;
+    private double heureDepart;
+    private double heureArrivee;
 
     //Constructeur
     public Parcours (ArrayList<Chemin> argListeChemins, ArrayList<Livraison> argListeLivraisons, Livreur argLivreur){
         listeChemins = argListeChemins;
         listeLivraisons = argListeLivraisons;
         livreur = argLivreur;
-        heureDebut = listeChemins[0].getHeureDebut();
-        heureArrivee = listeChemins[listeCheminss.length() - 1].getHeureArrivee();
+        heureDepart = listeChemins.get(0).getHeureDepart();
+        heureArrivee = listeChemins.get(listeChemins.size() - 1).getHeureArrivee();
     }
 
     //Méthodes
@@ -33,8 +33,8 @@ public class Parcours {
 		  return livreur;
     }    
 
-    public double getHeureDebut() {
-		  return heureDebut;
+    public double getHeureDepart() {
+		  return heureDepart;
     }    
 
     public double getHeureArrivee() {

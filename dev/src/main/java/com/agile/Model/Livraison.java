@@ -4,26 +4,26 @@ package com.agile.Model;
 public class Livraison {
     
 	// Attributs
-    private double heureDebut;
-    private double heureFin;
+    private double heureDepart;
+    private double heureArrivee;
     private Intersection lieu;
     private Livreur livreur;
 
     //Constructeur
-    public Livreur (double argHeureDebut, double argHeureFin, Intersection argLieu, Livreur argLivreur){
-        heureDebut = argHeureDebut;
-        heureFin = argHeureFin;
+    public Livraison (double argHeureDepart, double argHeureArrivee, Intersection argLieu, Livreur argLivreur){
+        heureDepart = argHeureDepart;
+        heureArrivee = argHeureArrivee;
         lieu = argLieu;
         livreur = argLivreur;
     }
 
     //Méthodes
-    public double getHeureDebut() {
-		  return heureDebut;
+    public double getHeureDepart() {
+		  return heureDepart;
     }    
 
-    public double getHeureFin() {
-		  return heureFin;
+    public double getHeureArrivee() {
+		  return heureArrivee;
     }    
 
     public Intersection getLieu() {

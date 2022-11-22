@@ -1,6 +1,6 @@
 package com.agile.Model;
 
-import java.util.*;
+import java.util.ArrayList;
 //classe Livreur
 public class Chemin {
     
@@ -9,14 +9,14 @@ public class Chemin {
     private Intersection depart;
     private Intersection arrivee;
     private double longueur;
-    private double heureDebut;
-    private double heureFin;
+    private double heureDepart;
+    private double heureArrivee;
 
     //Constructeur
     public Chemin (ArrayList<Segment> argListeSegments){
         listeSegments = argListeSegments;
-        depart = listeSegments[0].getDepart();
-        arrivee = listeSegments[listeSegments.length() - 1].getArrivee();
+        depart = listeSegments.get(0).getDepart();
+        arrivee = listeSegments.get(listeSegments.size() - 1).getArrivee();
         longueur = 0;
         listeSegments.forEach((s) -> {
             longueur = longueur + s.getLongueur();
@@ -39,5 +39,13 @@ public class Chemin {
     public double getLongueur() {
 		  return longueur;
     }    
+
+    public double getHeureDepart() {
+        return heureDepart;
+  }    
+
+  public double getHeureArrivee() {
+        return heureArrivee;
+  }
 }
 
