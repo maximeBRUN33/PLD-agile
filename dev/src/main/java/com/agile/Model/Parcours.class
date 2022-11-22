@@ -1,0 +1,44 @@
+package com.agile.Model;
+
+import java.util.*;
+//classe Livreur
+public class Parcours {
+    
+	// Attributs
+    private ArrayList<Chemin> listeChemins;
+    private ArrayList<Livraison> listeLivraisons;
+    private Livreur livreur;
+    private double heureDebut;
+    private double heureFin;
+
+    //Constructeur
+    public Parcours (ArrayList<Chemin> argListeChemins, ArrayList<Livraison> argListeLivraisons, Livreur argLivreur){
+        listeChemins = argListeChemins;
+        listeLivraisons = argListeLivraisons;
+        livreur = argLivreur;
+        heureDebut = listeChemins[0].getHeureDebut();
+        heureArrivee = listeChemins[listeCheminss.length() - 1].getHeureArrivee();
+    }
+
+    //Méthodes
+    public ArrayList<Chemin> getListeChemins() {
+		  return listeChemins;
+    }    
+
+    public ArrayList<Livraison> getListeLivraisons() {
+		  return listeLivraisons;
+    }    
+
+    public Livreur getLivreur() {
+		  return livreur;
+    }    
+
+    public double getHeureDebut() {
+		  return heureDebut;
+    }    
+
+    public double getHeureArrivee() {
+        return heureArrivee;
+  }    
+}
+

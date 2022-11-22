@@ -1,0 +1,43 @@
+package com.agile.Model;
+
+import java.util.*;
+//classe Livreur
+public class Chemin {
+    
+	// Attributs
+    private ArrayList<Segment> listeSegments;
+    private Intersection depart;
+    private Intersection arrivee;
+    private double longueur;
+    private double heureDebut;
+    private double heureFin;
+
+    //Constructeur
+    public Chemin (ArrayList<Segment> argListeSegments){
+        listeSegments = argListeSegments;
+        depart = listeSegments[0].getDepart();
+        arrivee = listeSegments[listeSegments.length() - 1].getArrivee();
+        longueur = 0;
+        listeSegments.forEach((s) -> {
+            longueur = longueur + s.getLongueur();
+        });
+    }
+
+    //Méthodes
+    public ArrayList<Segment> getListeSegments() {
+		  return listeSegments;
+    }    
+
+    public Intersection getDepart() {
+		  return depart;
+    }    
+
+    public Intersection getArrivee() {
+		  return arrivee;
+    }    
+
+    public double getLongueur() {
+		  return longueur;
+    }    
+}
+
