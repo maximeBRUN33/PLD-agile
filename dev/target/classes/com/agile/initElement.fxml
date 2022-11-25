@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" prefHeight="136.0" prefWidth="300.0" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.agile.InitElementController">
+    <children>
+        <Label text="No project loaded">
+         <font>
+            <Font name="Calibri Light" size="20.0" />
+         </font></Label>
+      <HBox alignment="CENTER" prefHeight="38.0" prefWidth="260.0" spacing="30.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#importMap" text="Import map">
+               <font>
+                  <Font name="Calibri Light" size="16.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="Import a city map in XML format" />
+               </tooltip>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#loadProject" text="Load project">
+               <font>
+                  <Font name="Calibri Light" size="16.0" />
+               </font>
+               <tooltip>
+                  <Tooltip text="Load a previously saved project" />
+               </tooltip>
+            </Button>
+         </children>
+      </HBox>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    </padding>
+</VBox>
