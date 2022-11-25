@@ -1,43 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Icon?>
-<?import javafx.scene.control.Accordion?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
 
-<VBox alignment="CENTER" prefHeight="630.0" prefWidth="716.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.agile.PrimaryController">
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.agile.PrimaryController">
    <children>
-      <SplitPane dividerPositions="0.29797979797979796" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="0.0" minWidth="0.0" prefHeight="670.0" prefWidth="756.0">
-        <items>
-          <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="150.0" minHeight="0.0" minWidth="0.0" prefHeight="0.0" prefWidth="0.0">
-               <children>
-                  <Label alignment="CENTER" layoutX="1.0" prefHeight="39.0" prefWidth="150.0" text="LOGIST'IF" textAlignment="CENTER" textFill="#0011ff" underline="true">
-                     <font>
-                        <Font name="Calibri Light" size="39.0" />
-                     </font>
-                  </Label>
-                  <Icon content="ADD_BOX" layoutX="14.0" layoutY="60.0" />
-                  <Label layoutX="46.0" layoutY="64.0" prefHeight="18.0" prefWidth="79.0" text="Add Delivery" />
-                  <Icon content="SAVE" layoutX="14.0" layoutY="97.0" />
-                  <Label layoutX="46.0" layoutY="102.0" prefHeight="18.0" prefWidth="79.0" text="Save Project" />
-                  <Icon content="UNARCHIVE" layoutX="14.0" layoutY="133.0" />
-                  <Label layoutX="46.0" layoutY="138.0" prefHeight="18.0" prefWidth="102.0" text="Export Selected" />
-                  <Icon content="DIRECTIONS_BIKE" layoutX="14.0" layoutY="171.0" />
-                  <Label layoutX="46.0" layoutY="176.0" prefHeight="18.0" prefWidth="102.0" text="Deliverers" />
-               </children>
-            </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
-               <children>
-                  <Accordion layoutX="303.0" layoutY="330.0" />
-                  <Accordion layoutX="53.0" layoutY="255.0" />
-                  <Accordion layoutX="108.0" layoutY="218.0" />
-                  <Accordion layoutX="292.0" layoutY="206.0" />
-               </children>
-            </AnchorPane>
-        </items>
-      </SplitPane>
+      <Label text="Primary View" />
+      <Button fx:id="primaryButton" text="Switch to Secondary View" onAction="#switchToSecondary"/>
    </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
 </VBox>
