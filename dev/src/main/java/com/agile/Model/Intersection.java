@@ -3,11 +3,11 @@ package com.agile.Model;
 public class Intersection {
     // Attributs
     private String id;
-    private String longitude;
-    private String latitude;
+    private double longitude;
+    private double latitude;
     	
     //Constructeur
-    public Intersection (String argId, String argLongitude, String argLatitude){
+    public Intersection (String argId, double argLongitude, double argLatitude){
         id = argId;
         longitude = argLongitude;
         latitude = argLatitude;
@@ -18,11 +18,11 @@ public class Intersection {
 		return id;
     } 
 
-    public String getLongitude() {
+    public double getLongitude() {
 		return longitude;
     } 
 
-    public String getLatitude() {
+    public double getLatitude() {
 		return latitude;
     }
 
@@ -30,11 +30,11 @@ public class Intersection {
       this.id = id;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(double longitude) {
       this.longitude = longitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(double latitude) {
       this.latitude = latitude;
     } 
 

@@ -2,6 +2,7 @@ package com.agile.Model;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;  
 
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -42,8 +43,8 @@ public class algo {
           Node nInter = listIntersection.item(temp);
           Element eInter = (Element) nInter;
           String id = eInter.getAttribute("id");
-          String longitude = eInter.getAttribute("longitude");
-          String latitude = eInter.getAttribute("latitude");
+          double longitude = Double.valueOf(eInter.getAttribute("longitude"));
+          double latitude = Double.valueOf(eInter.getAttribute("latitude"));
           Intersection inter = new Intersection(id, longitude, latitude);
           listInter.add(inter);
         } 
@@ -64,6 +65,7 @@ public class algo {
 
         map xmlMap = new map(ware, listInter, listSeg);
         System.out.println(xmlMap);
+
          
      } catch (Exception e) {
         e.printStackTrace();
