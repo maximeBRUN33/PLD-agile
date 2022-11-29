@@ -3,11 +3,11 @@ package com.agile.Model;
 public class Intersection {
     // Attributs
     private String id;
-    private double longitude;
-    private double latitude;
+    private String longitude;
+    private String latitude;
     	
     //Constructeur
-    public Intersection (String argId, double argLongitude, double argLatitude){
+    public Intersection (String argId, String argLongitude, String argLatitude){
         id = argId;
         longitude = argLongitude;
         latitude = argLatitude;
@@ -18,11 +18,31 @@ public class Intersection {
 		return id;
     } 
 
-    public double getLongitude() {
+    public String getLongitude() {
 		return longitude;
     } 
 
-    public double getLatitude() {
+    public String getLatitude() {
 		return latitude;
+    }
+
+    public void setId(String id) {
+      this.id = id;
+    }
+
+    public void setLongitude(String longitude) {
+      this.longitude = longitude;
+    }
+
+    public void setLatitude(String latitude) {
+      this.latitude = latitude;
     } 
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+      return "Intersection [id=" + id + ", longitude=" + longitude + ", latitude=" + latitude + "]";
+    }
 }

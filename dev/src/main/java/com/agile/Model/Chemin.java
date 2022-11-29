@@ -13,7 +13,7 @@ public class Chemin {
     private double heureArrivee;
 
     //Constructeur
-    public Chemin (ArrayList<Segment> argListeSegments){
+    /*public Chemin (ArrayList<Segment> argListeSegments){
         listeSegments = argListeSegments;
         depart = listeSegments.get(0).getDepart();
         arrivee = listeSegments.get(listeSegments.size() - 1).getArrivee();
@@ -21,6 +21,16 @@ public class Chemin {
         listeSegments.forEach((s) -> {
             longueur = longueur + s.getLongueur();
         });
+    }*/
+
+    public Chemin(ArrayList<Segment> listeSegments, Intersection depart, Intersection arrivee, double longueur,
+            double heureDepart, double heureArrivee) {
+        this.listeSegments = listeSegments;
+        this.depart = depart;
+        this.arrivee = arrivee;
+        this.longueur = longueur;
+        this.heureDepart = heureDepart;
+        this.heureArrivee = heureArrivee;
     }
 
     //Méthodes

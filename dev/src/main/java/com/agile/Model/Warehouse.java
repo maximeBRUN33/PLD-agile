@@ -3,7 +3,7 @@ package com.agile.Model;
 public class Warehouse {  
 private String address;   
 public Warehouse() {}  
-/**
+/*
  * @param address
  */
 public Warehouse(String address) {  
