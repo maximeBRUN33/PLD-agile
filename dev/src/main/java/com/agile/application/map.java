@@ -1,11 +1,9 @@
-package application;
+package com.agile.application;
+
+import com.agile.Model.*;
 
 import java.util.HashMap;
 import java.util.List;
-
-import Modele.Intersection;
-import Modele.Segment;
-import Modele.Warehouse;
 
 public class map {
 	private Warehouse warehouse;

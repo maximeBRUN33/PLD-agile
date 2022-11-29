@@ -23,7 +23,7 @@ public class algo {
         
         //Get le fichier XML
 
-        File inputFile = new File("/Users/antoinevraux/Documents/INSA 4IF/PLD-agile/dev/src/main/java/com/agile/Model/smallMap.xml");
+        File inputFile = new File("src/main/java/com/agile/Model/smallMap.xml");
         DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
         DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
         Document doc = dBuilder.parse(inputFile);
@@ -37,7 +37,7 @@ public class algo {
         Warehouse ware = new Warehouse(wareAddress);
 
         //Get les intersections
-        List<Intersection> listInter = new ArrayList<Intersection>();
+        HashMap<String, Intersection> mapInter = new HashMap<String, Intersection>();
         NodeList listIntersection = doc.getElementsByTagName("intersection");
         for (int temp = 0; temp < listIntersection.getLength(); temp++) {
           Node nInter = listIntersection.item(temp);
@@ -46,7 +46,7 @@ public class algo {
           double longitude = Double.valueOf(eInter.getAttribute("longitude"));
           double latitude = Double.valueOf(eInter.getAttribute("latitude"));
           Intersection inter = new Intersection(id, longitude, latitude);
-          listInter.add(inter);
+          mapInter.put(id, inter);
         } 
 
         //Get les segments
@@ -63,9 +63,9 @@ public class algo {
           listSeg.add(seg);
         }
 
-        map xmlMap = new map(ware, listInter, listSeg);
-        System.out.println(xmlMap);
-
+        //map xmlMap = new map(ware, mapInter, listSeg);
+        //System.out.println(xmlMap);
+        
          
      } catch (Exception e) {
         e.printStackTrace();

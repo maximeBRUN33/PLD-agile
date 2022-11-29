@@ -18,11 +18,10 @@ public class TestAlgoHoraires {
 		Intersection C = new Intersection("C", 0.0, 0.0);
 		Intersection D = new Intersection("D", 0.0, 0.0);
 		Deliverer Bill = new Deliverer("Bill");
-		Delivery L4 = new Delivery(11.0, 12.0, A, Bill);
-		Delivery L3 = new Delivery(11.0, 12.0, B, Bill);
-		Delivery L1 = new Delivery(11.0, 12.0, C, Bill);
+		Delivery L4 = new Delivery(8.0, 9.0, A, Bill);
+		Delivery L3 = new Delivery(9.0, 10.0, B, Bill);
+		Delivery L1 = new Delivery(10.0, 11.0, C, Bill);
 		Delivery L2 = new Delivery(11.0, 12.0, D, Bill);
-		Delivery Fake = new Delivery(7.0, 8.0, W, Bill);
 		ArrayList<Delivery> listDeliverys = new ArrayList<Delivery>();
 		
 		listDeliverys.add(L1);

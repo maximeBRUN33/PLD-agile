@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch ParserXML",
+            "request": "launch",
+            "mainClass": "com.agile.application.ParserXML",
+            "projectName": "dev"
+        },
+        {
+            "type": "java",
+            "name": "Launch TestAlgoHoraires",
+            "request": "launch",
+            "mainClass": "com.agile.TestAlgoHoraires",
+            "projectName": "dev"
+        },
+        {
+            "type": "java",
             "name": "Launch Current File",
             "request": "launch",
             "mainClass": "${file}"

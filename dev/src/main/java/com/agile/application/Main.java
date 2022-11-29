@@ -1,12 +1,12 @@
-package application;
+package com.agile.application;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import Modele.Intersection;
-import Modele.Segment;
+import com.agile.Model.*;
+
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

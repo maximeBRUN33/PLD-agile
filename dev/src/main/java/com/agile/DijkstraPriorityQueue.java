@@ -1,13 +1,15 @@
+package com.agile;
+
 import java.util.Comparator;
 import java.util.PriorityQueue;
 
 
 public class DijkstraPriorityQueue {
 
-    public static int[] dijkstra(int[][] graph, int source) {
+    public static double [] dijkstra(double [][] graph, int source) {
       int count = graph.length;
       boolean[] sommetsVisites = new boolean[count];
-      int[] distance = new int[count];
+      double[] distance = new double[count];
       PriorityQueue<Node> sommetsNonVisites = new PriorityQueue<Node>();
 
       for (int i = 0; i < count; i++) {
@@ -34,10 +36,10 @@ public class DijkstraPriorityQueue {
     }
   
     public static void main(String[] args) {
-      int graph[][] = new int[][] { { 0, 0, 1, 2, 0, 0, 0 }, { 0, 0, 2, 0, 0, 3, 0 }, { 1, 2, 0, 1, 3, 0, 0 },
+      double graph[][] = new double [][] { { 0.0, 0.0, 1, 2, 0, 0, 0 }, { 0, 0, 2, 0, 0, 3, 0 }, { 1, 2, 0, 1, 3, 0, 0 },
           { 2, 0, 1, 0, 0, 0, 1 }, { 0, 0, 3, 0, 0, 2, 0 }, { 0, 3, 0, 0, 2, 0, 1 }, { 0, 0, 0, 1, 0, 1, 0 } };
-      Dijkstra_AGILE T = new Dijkstra_AGILE();
-      int[] result = T.dijkstra(graph, 0);
+      DijkstraPriorityQueue T = new DijkstraPriorityQueue();
+      double [] result = T.dijkstra(graph, 0);
       System.out.println(result[4]);
     }
   }
