@@ -3,32 +3,57 @@ package com.agile.Model;
 public class Segment {
     // Attributs
     private String name;
-    private double length;
-    private Intersection start;
-    private Intersection end;
+    private String length;
+    private String origin;
+    private String destination;
     	
     //Constructeur
-    public Segment (String argName, double argLength, Intersection argStart, Intersection argEnd){
+    public Segment (String argName, String argLength, String argOrigin, String argDestination){
         name = argName;
         length = argLength;
-        start = argStart;
-        end = argEnd;
+        origin = argOrigin;
+        destination = argDestination;
     }
 
     //Méthodes
-    public String getname() {
-		  return name;
-    } 
+    public String getName() {
+        return name;
+    }
 
-    public double getLength() {
-		  return length;
-    } 
+    public void setName(String name) {
+        this.name = name;
+    }
 
-    public Intersection getStart() {
-		  return start;
-    } 
+    public String getLength() {
+        return length;
+    }
 
-    public Intersection getEnd() {
-		  return end;
-    } 
+    public void setLength(String length) {
+        this.length = length;
+    }
+
+    public String getOrigin() {
+        return origin;
+    }
+
+    public void setOrigin(String origin) {
+        this.origin = origin;
+    }
+
+    public String getDestination() {
+        return destination;
+    }
+
+    public void setDestination(String destination) {
+        this.destination = destination;
+    }
+
+    @Override
+    public String toString() {
+        return "Segment [name=" + name + ", length=" + length + ", origin=" + origin + ", destination=" + destination
+                + "]";
+    }
+    
 }
+
+
