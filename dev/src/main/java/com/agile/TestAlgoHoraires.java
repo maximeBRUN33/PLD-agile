@@ -3,8 +3,8 @@ package com.agile;
 import java.util.ArrayList;
 
 import com.agile.Model.Intersection;
-import com.agile.Model.Livraison;
-import com.agile.Model.Livreur;
+import com.agile.Model.Delivery;
+import com.agile.Model.Deliverer;
 
 public class TestAlgoHoraires {
 
@@ -17,56 +17,56 @@ public class TestAlgoHoraires {
 		Intersection B = new Intersection("B", 0.0, 0.0);
 		Intersection C = new Intersection("C", 0.0, 0.0);
 		Intersection D = new Intersection("D", 0.0, 0.0);
-		Livreur Bill = new Livreur("Bill");
-		Livraison L4 = new Livraison(11.0, 12.0, A, Bill);
-		Livraison L3 = new Livraison(11.0, 12.0, B, Bill);
-		Livraison L1 = new Livraison(11.0, 12.0, C, Bill);
-		Livraison L2 = new Livraison(11.0, 12.0, D, Bill);
-		Livraison Fake = new Livraison(7.0, 8.0, W, Bill);
-		ArrayList<Livraison> listLivraisons = new ArrayList<Livraison>();
+		Deliverer Bill = new Deliverer("Bill");
+		Delivery L4 = new Delivery(11.0, 12.0, A, Bill);
+		Delivery L3 = new Delivery(11.0, 12.0, B, Bill);
+		Delivery L1 = new Delivery(11.0, 12.0, C, Bill);
+		Delivery L2 = new Delivery(11.0, 12.0, D, Bill);
+		Delivery Fake = new Delivery(7.0, 8.0, W, Bill);
+		ArrayList<Delivery> listDeliverys = new ArrayList<Delivery>();
 		
-		listLivraisons.add(L1);
-		listLivraisons.add(L2);
-		listLivraisons.add(L3);
-		listLivraisons.add(L4);
+		listDeliverys.add(L1);
+		listDeliverys.add(L2);
+		listDeliverys.add(L3);
+		listDeliverys.add(L4);
 
-		//listLivraisons.add(Fake);
+		//listDeliverys.add(Fake);
 
-		simplifierMatrice(matriceAdjacence, listLivraisons);
+		simplifierMatrice(matriceAdjacence, listDeliverys);
 	}
 
-	public static int [][] simplifierMatrice (int [][] matriceAsimplifier, ArrayList<Livraison> listLivraisons)
+	public static int [][] simplifierMatrice (int [][] matriceAsimplifier, ArrayList<Delivery> listDeliverys)
 	{
 		Intersection W = new Intersection("W", 0.0, 0.0);
-		Livreur Bill = new Livreur("Bill");
-		Livraison Fake = new Livraison(7.0, 8.0, W, Bill);
-		listLivraisons.add(Fake);
+		Deliverer Bill = new Deliverer("Bill");
+		Delivery Fake = new Delivery(7.0, 8.0, W, Bill);
+		listDeliverys.add(Fake);
 
 		int [][] matriceEtalon = new int [matriceAsimplifier.length][matriceAsimplifier.length];
 
-		for (int i = 0; i < listLivraisons.size(); i++) {
-			for (int j = 0; j < listLivraisons.size(); j++) {
+		for (int i = 0; i < listDeliverys.size(); i++) {
+			for (int j = 0; j < listDeliverys.size(); j++) {
 				matriceEtalon[i][j] = matriceAsimplifier[i][j];
 			}
 		}
 
 		double heureMax = 9.0;
 		double heureMin = 11.0;
-		for (int i = 0; i < listLivraisons.size(); i++) {
-			if (listLivraisons.get(i).getHeureArrivee() > heureMax)
-				heureMax = listLivraisons.get(i).getHeureArrivee();
-			if (listLivraisons.get(i).getHeureDepart() < heureMin)
-				heureMin = listLivraisons.get(i).getHeureDepart();
+		for (int i = 0; i < listDeliverys.size(); i++) {
+			if (listDeliverys.get(i).getArrivalHour() > heureMax)
+				heureMax = listDeliverys.get(i).getArrivalHour();
+			if (listDeliverys.get(i).getStartHour() < heureMin)
+				heureMin = listDeliverys.get(i).getStartHour();
 		}
 		int offset = 0;
-		for (int i = 0; i < listLivraisons.size(); i++) {
-			for (int j = 0; j < listLivraisons.size(); j++) {
+		for (int i = 0; i < listDeliverys.size(); i++) {
+			for (int j = 0; j < listDeliverys.size(); j++) {
 				if (i != j) {
-					if (listLivraisons.get(i).getHeureDepart() == listLivraisons.get(j).getHeureDepart()) {
-					} else if (listLivraisons.get(i).getHeureDepart() == listLivraisons.get(j).getHeureArrivee()
+					if (listDeliverys.get(i).getStartHour() == listDeliverys.get(j).getStartHour()) {
+					} else if (listDeliverys.get(i).getStartHour() == listDeliverys.get(j).getArrivalHour()
 							+ offset) {
 						matriceAsimplifier[i][j] = 0;
-					} else if (listLivraisons.get(j).getHeureDepart() == listLivraisons.get(i).getHeureArrivee()
+					} else if (listDeliverys.get(j).getStartHour() == listDeliverys.get(i).getArrivalHour()
 							+ offset) {
 						matriceAsimplifier[j][i] = 0;
 					} else {
@@ -76,24 +76,24 @@ public class TestAlgoHoraires {
 				}
 			}
 		}
-		for (int j = 0; j < listLivraisons.size(); j++) {
+		for (int j = 0; j < listDeliverys.size(); j++) {
 			boolean gap1 = true;
 			boolean gap2 = true;
 			boolean gap3 = true;
-			for (int i = 0; i < listLivraisons.size(); i++) 
+			for (int i = 0; i < listDeliverys.size(); i++) 
 				{
-					if (listLivraisons.get(j).getHeureDepart() == listLivraisons.get(i).getHeureArrivee()) 
+					if (listDeliverys.get(j).getStartHour() == listDeliverys.get(i).getArrivalHour()) 
 					{
 						gap1 = false;
 						gap2 = false;
 						gap3 = false;
 					}
-					if (listLivraisons.get(j).getHeureDepart() == listLivraisons.get(i).getHeureArrivee() + 1) 
+					if (listDeliverys.get(j).getStartHour() == listDeliverys.get(i).getArrivalHour() + 1) 
 					{
 						gap2 = false;
 						gap3 = false;
 					}
-					if (listLivraisons.get(j).getHeureDepart() == listLivraisons.get(i).getHeureArrivee() + 2) 
+					if (listDeliverys.get(j).getStartHour() == listDeliverys.get(i).getArrivalHour() + 2) 
 					{
 						gap3 = false;
 					}
@@ -101,9 +101,9 @@ public class TestAlgoHoraires {
 				}
 			if (gap1)
 			{
-				for (int i = 0; i < listLivraisons.size(); i++) 
+				for (int i = 0; i < listDeliverys.size(); i++) 
 				{
-					if (listLivraisons.get(j).getHeureDepart() == listLivraisons.get(i).getHeureArrivee() + 1) 
+					if (listDeliverys.get(j).getStartHour() == listDeliverys.get(i).getArrivalHour() + 1) 
 					{
 						matriceAsimplifier[i][j] = matriceEtalon[i][j];
 					}
@@ -111,9 +111,9 @@ public class TestAlgoHoraires {
 			}
 			if (gap2)
 			{
-				for (int i = 0; i < listLivraisons.size(); i++) 
+				for (int i = 0; i < listDeliverys.size(); i++) 
 				{
-					if (listLivraisons.get(j).getHeureDepart() == listLivraisons.get(i).getHeureArrivee() + 2) 
+					if (listDeliverys.get(j).getStartHour() == listDeliverys.get(i).getArrivalHour() + 2) 
 					{
 						matriceAsimplifier[i][j] = matriceEtalon[i][j];
 					}
@@ -121,9 +121,9 @@ public class TestAlgoHoraires {
 			}
 			if (gap3)
 			{
-				for (int i = 0; i < listLivraisons.size(); i++) 
+				for (int i = 0; i < listDeliverys.size(); i++) 
 				{
-					if (listLivraisons.get(j).getHeureDepart() == listLivraisons.get(i).getHeureArrivee() + 3) 
+					if (listDeliverys.get(j).getStartHour() == listDeliverys.get(i).getArrivalHour() + 3) 
 					{
 						matriceAsimplifier[i][j] = matriceEtalon[i][j];
 					}
@@ -131,9 +131,9 @@ public class TestAlgoHoraires {
 			}
 		}
 		System.out.println(heureMin + " " + heureMax);
-		for (int k = 0; k < listLivraisons.size(); k++) {
-			for (int l = 0; l < listLivraisons.size(); l++) {
-				if (listLivraisons.get(k).getHeureArrivee() == heureMin+1 && listLivraisons.get(l).getHeureArrivee() == heureMax)
+		for (int k = 0; k < listDeliverys.size(); k++) {
+			for (int l = 0; l < listDeliverys.size(); l++) {
+				if (listDeliverys.get(k).getArrivalHour() == heureMin+1 && listDeliverys.get(l).getArrivalHour() == heureMax)
 				matriceAsimplifier[l][k] = matriceEtalon[l][k];
 			}
 		}
@@ -141,15 +141,15 @@ public class TestAlgoHoraires {
 
 		// Affichage des résultats
 		System.out.print("  ");
-		for (int k = 0; k < listLivraisons.size(); k++) {
-			System.out.print(listLivraisons.get(k).getLieu().getId() + " ");
+		for (int k = 0; k < listDeliverys.size(); k++) {
+			System.out.print(listDeliverys.get(k).getPlace().getId() + " ");
 		}
 		
 		System.out.println();
-		for (int k = 0; k < listLivraisons.size(); k++) {
+		for (int k = 0; k < listDeliverys.size(); k++) {
 			
-			System.out.print(listLivraisons.get(k).getLieu().getId() + " ");
-			for (int l = 0; l < listLivraisons.size(); l++) {
+			System.out.print(listDeliverys.get(k).getPlace().getId() + " ");
+			for (int l = 0; l < listDeliverys.size(); l++) {
 				System.out.print(matriceAsimplifier[k][l] + " ");
 			}
 			System.out.println();
