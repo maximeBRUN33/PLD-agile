@@ -24,5 +24,25 @@ public class Intersection {
 
     public double getLatitude() {
 		return latitude;
+    }
+
+    public void setId(String id) {
+      this.id = id;
+    }
+
+    public void setLongitude(double longitude) {
+      this.longitude = longitude;
+    }
+
+    public void setLatitude(double latitude) {
+      this.latitude = latitude;
     } 
+
+    /* (non-Javadoc)
+     * @see java.lang.Object#toString()
+     */
+    @Override
+    public String toString() {
+      return "Intersection [id=" + id + ", longitude=" + longitude + ", latitude=" + latitude + "]";
+    }
 }
