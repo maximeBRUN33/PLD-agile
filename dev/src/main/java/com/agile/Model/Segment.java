@@ -2,33 +2,33 @@ package com.agile.Model;
 
 public class Segment {
     // Attributs
-    private String nom;
-    private double longueur;
-    private Intersection depart;
-    private Intersection arrivee;
+    private String name;
+    private double length;
+    private Intersection start;
+    private Intersection end;
     	
     //Constructeur
-    public Segment (String argNom, double argLongueur, Intersection argDepart, Intersection argArrivee){
-        nom = argNom;
-        longueur = argLongueur;
-        depart = argDepart;
-        arrivee = argArrivee;
+    public Segment (String argName, double argLength, Intersection argStart, Intersection argEnd){
+        name = argName;
+        length = argLength;
+        start = argStart;
+        end = argEnd;
     }
 
     //Méthodes
-    public String getnom() {
-		  return nom;
+    public String getname() {
+		  return name;
     } 
 
-    public double getLongueur() {
-		  return longueur;
+    public double getLength() {
+		  return length;
     } 
 
-    public Intersection getDepart() {
-		  return depart;
+    public Intersection getStart() {
+		  return start;
     } 
 
-    public Intersection getArrivee() {
-		  return arrivee;
+    public Intersection getEnd() {
+		  return end;
     } 
 }
