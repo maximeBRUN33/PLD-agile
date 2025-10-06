@@ -35,6 +35,8 @@ Prototyped using **Figma** and developed in **JavaFX**, the app offers two main 
 1. **Individual Courier View** – Displays assigned deliveries and allows adding/removing points directly on the map  
 2. **All Couriers View** – Visualizes all couriers’ routes with filtering options  
 
+![User interface](images/LOGISTIF_interface.png)
+
 ### Key UI Features  
 - Interactive map with hover highlighting  
 - Progress bar to simulate delivery progression  
